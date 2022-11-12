@@ -1,0 +1,90 @@
+<html>
+    <head>Inheritance</head>
+        <body>
+            <script>
+                let animal ={
+                    eat :true
+                };
+                let cat ={
+                    jumps :true
+                };
+                cat.__proto__=animal;
+                alert(cat.eat);
+                alert(cat.jumps);
+
+      //declare the method inside the object
+                let tree = {
+                    wood : true,
+                    walk() {
+                        alert("no its wrong");
+                    }
+                };
+                let mongo={
+                    fruits :true,
+                    __proto__:tree
+                };
+
+                mongo.walk();
+    //prototype chain
+                let emp1={
+                    age :40,
+                    exp :13,
+                    position(){
+                        alert("good position");
+                    }
+
+                }
+                let emp2={
+                    age1 :36,
+                    exp1 :10,
+                    postion1(){
+                        alert("2nd position");
+                    },
+                    __proto__:emp1
+                }
+                let emp3={
+                    age3 :30,
+                    exp3 :8,
+                    postion3(){
+                        alert("3nd position");
+                    },
+                    __proto__:emp2
+                }
+                alert(emp3.exp);
+    //this
+                let ani={
+                    walk(){
+                        if(this.isSleeping){
+                            alert('i walk');
+                        }
+
+                        },
+                        sleep(){
+                            this.isSleeping=true;
+                        }
+                };
+                let rab ={
+                    name: "white rabbit",
+                    __proto__:ani
+                };
+                console.log(rab.sleep());
+                alert(rab.isSleeping);
+                alert(ani.isSleeping);
+    //for in loop
+                let animals ={
+                    eats:true
+                    
+                }
+                let rabbit ={
+                    jumps :true,
+                    __proto__:animals
+                    
+                };
+                alert(Object.keys(rabbit));
+
+                for(let prop in rabbit)
+                alert(prop);
+            </script>
+        </body>
+    
+</html>
